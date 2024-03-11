@@ -2,9 +2,18 @@ import React from 'react';
 import { Box } from './components/box.component';
 import QRCode from 'qrcode.react';
 
+enum Level {
+  L = 'L',
+  M = 'M',
+  Q = 'Q',
+  H = 'H',
+}
+
+const levels = Object.values(Level);
+
 function App() {
   const [value, setValue] = React.useState('');
-  // Update the ref type to a more generic one since you're attaching it to a div
+  const [level, setLevel] = React.useState<Level>(Level.L);
   const ref = React.useRef<HTMLDivElement>(null);
 
   const handleCopy = () => {
@@ -26,7 +35,7 @@ function App() {
     a.href = url;
     a.download = 'qrcode.svg';
     a.click();
-  }
+  };
 
   return (
     <div className="flex items-center justify-center w-screen h-screen">
@@ -46,9 +55,21 @@ function App() {
               renderAs={'svg'}
               value={value}
               size={256}
+              level={level}
             />
           </div>
         </div>
+        <select
+          value={level}
+          onChange={(e) => setLevel(e.target.value as Level)}
+          className={'w-full p-2 border rounded-lg'}
+        >
+          {levels.map((l) => (
+            <option key={l} value={l}>
+              {l}
+            </option>
+          ))}
+        </select>
         <div className="flex flex-row gap-2">
           <button
             className={'w-full p-2 border rounded-lg bg-blue-500 text-white'}
