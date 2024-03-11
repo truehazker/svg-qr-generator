@@ -9,7 +9,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App/>
+    <main className={'w-screen min-h-screen'}>
+      <App/>
+    </main>
   </React.StrictMode>,
 );
 
