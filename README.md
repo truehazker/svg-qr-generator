@@ -6,4 +6,4 @@ Also, you can download the QR code as an SVG file or just copy the SVG code to t
 
 ## How to use
 
-Just head to (this website)[https://truehazker.github.io/svg-qr-generator/] and start making QR codes :)
+Just head to this website (https://truehazker.github.io/svg-qr-generator/) and start making QR codes :)
